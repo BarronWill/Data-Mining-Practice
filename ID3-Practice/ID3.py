@@ -11,4 +11,5 @@ print(df.head(5))
 col = df.columns[:-1]
 for i in col:
     Caculator.entropy_and_infogain(df, i)
-    print('-----------------------------')
+    print('---------------------------------')
+
