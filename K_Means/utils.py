@@ -8,8 +8,6 @@ class Kmeans:
         self.max_iter = max_iter
 
     def fit(self, X):
-        # Chuyển dữ liệu sang dạng ma trận
-        # X = mat.reshape((-1,3))
         # Khởi tạo centroids dùng k-means++
         self.centroids = self.__kmeans_plus_plus(X)
 
