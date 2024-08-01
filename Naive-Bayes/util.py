@@ -35,3 +35,4 @@ class NaiveBayes:
       self.px += self.pxci[c] * self.prob[c]
     for c in self.classes:
       self.result[c] = (self.pxci[c] * self.prob[c]) / self.px
+    return max(self.result)

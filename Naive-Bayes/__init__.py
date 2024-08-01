@@ -14,5 +14,5 @@ print(df.head())
 
 nb = NaiveBayes()
 nb.fit(df)
-nb.predict(['It', 'Thap', 'Nam'])
-print(nb.result)
+y_pred = nb.predict(['It', 'Thap', 'Nam'])
+print(y_pred)
