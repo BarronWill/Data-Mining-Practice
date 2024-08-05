@@ -22,6 +22,7 @@ y_test = test_data[test_data.columns[-1]]
 x_train_norm = normalize(x_train)
 x_test_norm = normalize(x_test)
 
+print(x_train_norm)
 # Train model
 GNB = GaussianNB()
 GNB.fit(x_train_norm, y_train)
