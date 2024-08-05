@@ -33,11 +33,9 @@ import pandas as pd
 import math
 
 def euclidean_distance(point1, point2):
-    """Tính khoảng cách Euclidean giữa hai điểm."""
     return math.sqrt(sum((x - y) ** 2 for x, y in zip(point1, point2)))
 
 def find_closest_clusters(clusters):
-    """Tìm hai cụm gần nhau nhất."""
     min_distance = float('inf')
     closest_clusters = None
     for i in range(len(clusters)):
@@ -50,7 +48,6 @@ def find_closest_clusters(clusters):
     return closest_clusters
 
 def merge_clusters(clusters, i, j):
-    """Gộp hai cụm lại với nhau."""
     merged_cluster = {
         'points': clusters[i]['points'] + clusters[j]['points'],
         'centroid': np.mean(clusters[i]['points'] + clusters[j]['points'], axis=0)
@@ -60,7 +57,6 @@ def merge_clusters(clusters, i, j):
     clusters.append(merged_cluster)
 
 def agglomerative_clustering(X, n_clusters):
-    """Thực hiện phân cụm phân cấp theo phương pháp gộp."""
     clusters = [{'points': [x], 'centroid': x} for x in X]
     while len(clusters) > n_clusters:
         i, j = find_closest_clusters(clusters)
@@ -80,6 +76,5 @@ X = [[5, 3],
      [80, 91]]
 
 clusters = [{'points': [x], 'centroid': x} for x in X]
-del clusters[1]
-# clusters = agglomerative_clustering(X, 3)
+clusters = agglomerative_clustering(X, 2)
 print(clusters)
