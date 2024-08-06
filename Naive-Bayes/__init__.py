@@ -10,9 +10,17 @@ data = {
 }
 df = pd.DataFrame(data)
 print(df.head())
+X = df.drop([df.columns[-1]], axis=1)
+y = df[df.columns[-1]]
+lenx = X.shape[0]
+X_train = X.iloc[:lenx-1]
+Y_train = y.iloc[:lenx-1]
 
+X_test = X.iloc[lenx-1]
+Y_test = y.iloc[lenx-1]
 
+print(X_test.values)
 nb = NaiveBayes()
-nb.fit(df)
-y_pred = nb.predict(['It', 'Thap', 'Nam'])
+nb.fit(X_train, Y_train)
+y_pred = nb.predict(X_test.values)
 print(y_pred)
